@@ -279,19 +279,19 @@ Controls the image format Fooocus will produce. Can be "jpg", "png", or "webp." 
 #### default_overwrite_upscale (Number)
 ???? I would think this controls the upscale factor but I'm not sure.
 
-### default_loras_min_weight (Number)
+#### default_loras_min_weight (Number)
 This is the lowest value you can set for the lora weight using the slider.
 ```
 "default_loras_min_weight": -5,
 ```
 
-### default_loras_max_weight (Number)
+#### default_loras_max_weight (Number)
 This is the highest value you can set for the lora weight using the slider. If you set this to a value lower or the same as the default_loras_min_weight, you won't be able to change the lora weight with the slider.
 ```
 "default_loras_max_weight": 5,
 ```
 
-### default_max_lora_number (Number)
+#### default_max_lora_number (Number)
 This controls how many loras the interface will show. I tested values from 1 to 20 and the interface showed that many. Setting it to 0 will cause the interface to show the default 5.
 ```
 "default_max_lora_number": 10,
@@ -319,7 +319,22 @@ Allows you to put your name, handle or something else in the metadata. Again, th
 "metadata_created_by": "Your_Message_Here",
 ```
 
-#### Additional Settings
-???? The settings "default_black_out_nsfw", "default_inpaint_mask_model", "default_inpaint_mask_cloth_category", and "default_inpaint_mask_sam_model" exist, but I don't know enough about them to describe.
+#### default_inpaint_mask_model (String)
+#### default_inpaint_mask_sam_model (String)
+These settings should only be changed if you have an alternative inpaint mask or sam model that you want Fooocus to use.
+```
+"default_inpaint_mask_sam_model": "model.safetensors",
+```
+#### default_inpaint_mask_cloth_category (String)
+The model you specified above should have instructions on the correct category to use.
+```
+"default_inpaint_mask_cloth_category": "category",
+```
+#### default_black_out_nsfw (Boolean)
+Controls whether Fooocus will black out images it detects as Not Safe for Work.
+```
+"default_black_out_nsfw": true,
+```
+
 
 Thank you for coming to my TED talk.

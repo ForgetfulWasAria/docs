@@ -330,11 +330,7 @@ The model you specified above should have instructions on the correct category t
 ```
 "default_inpaint_mask_cloth_category": "category",
 ```
-#### default_black_out_nsfw (Boolean)
-Controls whether Fooocus will black out images it detects as Not Safe for Work.
-```
-"default_black_out_nsfw": true,
-```
+
 
 
 Thank you for coming to my TED talk.

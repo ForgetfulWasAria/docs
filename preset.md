@@ -97,7 +97,7 @@ Start up Fooocus and make sure that the model and any loras have been loaded. Ma
 
 ## List of Settings
 Fooocus explains what most of these do in the interface. This section gives an example of how they look in a preset file. The examples are taken from the turbo preset I modified and will be different from the values you see.
-### Vanilla Fooocus (lllyasviel)
+### Fooocus (lllyasviel)
 #### default_model (String)
 This is the name of the checkpoint you want your preset to load surounded by double quotes. Be sure to include the .safetensors extension.
 ```
@@ -271,7 +271,6 @@ This sets the list that appears below the inpainting section. You can add or cha
 ```
 Notice that the last item doesn't have a comma at the end.
 
-### mashb1t's Fork
 #### default_output_format (String)
 Controls the image format Fooocus will produce. Can be "jpg", "png", or "webp." If not set, Fooocus will produce PNG files.
 ```

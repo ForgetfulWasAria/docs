@@ -278,11 +278,31 @@ Controls the image format Fooocus will produce. Can be "jpg", "png", or "webp." 
 ```
 #### default_overwrite_upscale (Number)
 ???? I would think this controls the upscale factor but I'm not sure.
+
+### default_loras_min_weight (Number)
+This is the lowest value you can set for the lora weight using the slider.
+```
+"default_loras_min_weight": -5,
+```
+
+### default_loras_max_weight (Number)
+This is the highest value you can set for the lora weight using the slider. If you set this to a value lower or the same as the default_loras_min_weight, you won't be able to change the lora weight with the slider.
+```
+"default_loras_max_weight": 5,
+```
+
+### default_max_lora_number (Number)
+This controls how many loras the interface will show. I tested values from 1 to 20 and the interface showed that many. Setting it to 0 will cause the interface to show the default 5.
+```
+"default_max_lora_number": 10,
+```
+
 #### default_save_metadata_to_images (Boolean)
 Whether to include metadata in the images themselves. Fooocus will always produce the log.html files.
 ```
 "default_save_metadata_to_images": false,
 ```
+
 #### default_metadata_scheme (String)
 This determines if metadata in files is in JSON format (fooocus) or the format Automatic1111 uses. If default_save_metadata_to_images is false or absent, this will have no effect.
 ```
@@ -292,11 +312,13 @@ or
 ```
 "default_metadata_scheme": "a1111",
 ```
+
 #### metadata_created_by (String)
 Allows you to put your name, handle or something else in the metadata. Again, this only matters if metadata is saved to images.
 ```
 "metadata_created_by": "Your_Message_Here",
 ```
+
 #### Additional Settings
 ???? The settings "default_black_out_nsfw", "default_inpaint_mask_model", "default_inpaint_mask_cloth_category", and "default_inpaint_mask_sam_model" exist, but I don't know enough about them to describe.
 

@@ -58,23 +58,23 @@ The preset looks a bit like this
 ```
 Note the pair of curly brackets and that the last item in the file doesn't have a comma at the end.
 </br>Each item follows a pattern like this:
-```
-"setting" : value
+```json
+"setting" : "value"
 ```
 where setting is one of the settings from the list below. After each setting name, I've listed the type of value that the setting takes. There are three types:
 * Numbers are either whole numbers (1, 2, 10) or decimals (7.2, 0.8, 1.64). Decimals less than one should have a leading zero, so 0.4 not .4.
 * Strings can be anything but they must be enclosed in quotes:
-```
+```json
 "myString value"
 ```
 * Booleans are either true or false. True turns the setting on, false disables it. Always use all lower case: true not True.
 * Arrays are one or more values enclosed in square brackets:
-```
+```json
 "setting" : 
     [
-        first_item,
-        another,
-        last_item
+        "first_item",
+        "another",
+        "last_item"
     ]
 ```
 In general, change the items, but don't change the brackets. Note that the last item doesn't have a comma after it. Arrays can have Numbers, Strings, or other Arrays in them. As long as you leave the brackets alone (unless you're deleting an entire item) you should be ok.
@@ -100,24 +100,24 @@ Fooocus explains what most of these do in the interface. This section gives an e
 ### Fooocus (lllyasviel)
 #### default_model (String)
 This is the name of the checkpoint you want your preset to load surounded by double quotes. Be sure to include the .safetensors extension.
-```
+```json
 "default_model": "dreamshaperXL_v2TurboDpmppSDE.safetensors",
 ```
 #### previous_default_models
 ????
 #### default_refiner (String)
 The name of the refiner your preset should load. This works like the default model.
-```
+```json
 "default_refiner": "None",
 ```
 #### default_refiner_switch (Number)
 How far through Fooocus should switch to your refiner, if one is present. This will be a number between 0 and 1. 0.5-0.8 is a common range.
-```
+```json
 "default_refiner_switch": 0.5,
 ```
 #### default_loras (Special)
 A list of five lora slots. Change "None" to the name of the lora, including extension, and set the strength as a number. The default looks like this:
-```
+```json
 "default_loras": [
         [
             "None",
@@ -143,7 +143,7 @@ A list of five lora slots. Change "None" to the name of the lora, including exte
 ```
 Notice the square bracket by "default lora": and the one at the bottom on a line by itself with a comma. Those are paired. If your editor colors brackets, they should be the same color.
 Inside are five slots for loras, each surrounded by square brackets ending with a comma, except the last one that doesn"t have a comma. Each looks like this:
-```
+```json
         [
             "None",
             1.0
@@ -152,27 +152,27 @@ Inside are five slots for loras, each surrounded by square brackets ending with 
 To load a lora, just change the None to the lora"s file name including the safetensors extension. You can change the strength right below by changing 1.0 to 0.8 or 1.5 or any other value you desire.
 #### default_config_scale (Number)
 Sets how closely to follow the prompt, with high values allowing the model more freedom.
-```
+```json
 "default_cfg_scale": 2.0,
 ```
 #### default_sample_sharpness (Number)
 Controls how sharp the resulting image is.
-```
+```json
 "default_sample_sharpness": 3.0,
 ```
 #### default_sampler (String)
 Sets the sampler to use for image generation.
-```
+```json
 "default_sampler": "dpmpp_sde",
 ```
 #### default_scheduler (String)
 Sets the noise scheduler.
-```
+```json
 "default_scheduler": "karras",
 ```
 #### default_styles (Array)
 Selects which of Fooocus"s styles should be enabled when this preset is loaded. Each item in the Array is a String.
-```
+```json
 "default_styles": [
         "Fooocus V2",
         "Fooocus Enhance",
@@ -181,17 +181,17 @@ Selects which of Fooocus"s styles should be enabled when this preset is loaded. 
 ```
 #### default_prompt (String)
 Sets a prompt at start up.
-```
+```json
 "default_prompt": "",
 ```
 #### default_prompt_negative (String)
 Sets the text in the negative prompt at start up.
-```
+```json
 "default_prompt_negative": "",
 ```
 #### available_aspect_ratios (Array)
 Sets the list of aspect ratios (resolutions) that will appear in the Fooocus UI. Note that using resolutions SDXL wasn't trained on will lower quality. Unless you know another working resolution, I wouldn"t change this.
-```
+```json
 "available_aspect_ratios": [
         "704*1408", "704*1344", "768*1344", "768*1280", "832*1216", "832*1152",
         "896*1152", "896*1088", "960*1088", "960*1024", "1024*1024", "1024*960",
@@ -202,39 +202,39 @@ Sets the list of aspect ratios (resolutions) that will appear in the Fooocus UI.
 ```
 #### default_aspect_ratio (String)
 This selects the resolution for image generation. This should be one of the pairs listed in your Fooocus UI with the numbers separated by an asterisk. For example, to set the resolution to 896 pixels wide by 1152 tall, you"d use the following line:
-```
+```json
 "default_aspect_ratio": "896*1152",
 ```
 #### default_performance (String)
 Which performance preset to use of the ones listed in the UI.
-```
+```json
 "default_performance": "Speed",
 ```
 #### default_advanced_checkbox (Boolean)
 Whether to show the Advanced settings at start up or not.
-```
+```json
 "default_advanced_checkbox": true,
 ```
 #### default_max_image_number (Number)
 This sets how many images are queued when the Generate button is pressed. I tested and it seems you can set this to 1000 without a problem. I did not actually generate 1000 images though. In the past, I"ve used 100 without a problem.
-```
+```json
 "default_max_image_number": 32,
 ```
 #### default_image_number (Number)
 This sets where the slider is at start up. It should be less than or equal to the default_max_image_number.
-```
+```json
 "default_image_number": 4,
 ```
 #### checkpoint_downloads, lora_downloads, embeddings_downloads (Special)
 These work the same way, Fooocus will download the indicated checkpoint if it isn"t in your model directory. Usually you will want this to be the default_model you selected.
 </br> **Note that this item is surrounded by curly brackets in all of the presets, not square brackets.** </br> The realistic preset has this:
-```
+```json
 "checkpoint_downloads": {
         "realisticStockPhoto_v20.safetensors": "https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/realisticStockPhoto_v20.safetensors"
     },
 ```
 If you do not want your preset to ever download a model you can do this:
-```
+```json
 "checkpoint_downloads": {},
     "embeddings_downloads": {},
     "lora_downloads": {},
@@ -242,24 +242,24 @@ If you do not want your preset to ever download a model you can do this:
 
 #### default_inpaint_engine_version (Number)
 This sets which inpaint model will be used. None of the presets I looked at used this.
-```
+```json
 "default_inpaint_engine_version": 2.6,
 ```
 #### default_cfg_tsnr (Number)
 ???? I"m not sure what the difference between this and default_cfg_scale is.
-```
+```json
 "#### default_cfg_tsnr": 7.0,
 ```
 #### default_overwrite_step (Number)
 This changes the number of steps used in generating an image. It is particularly useful for Turbo models that need only 6-8 steps.
-```
+```json
 "default_overwrite_step": 20,
 ```
 #### default_overwrite_switch (Number)
 ????
 #### example_inpaint_prompts (Array)
 This sets the list that appears below the inpainting section. You can add or change these prompts using this item:
-```
+```json
 "example_inpaint_prompts": [
         "highly detailed face",
         "detailed girl face",
@@ -273,7 +273,7 @@ Notice that the last item doesn't have a comma at the end.
 
 #### default_output_format (String)
 Controls the image format Fooocus will produce. Can be "jpg", "png", or "webp." If not set, Fooocus will produce PNG files.
-```
+```json
 "default_output_format": "jpg",
 ```
 #### default_overwrite_upscale (Number)
@@ -281,53 +281,53 @@ Controls the image format Fooocus will produce. Can be "jpg", "png", or "webp." 
 
 #### default_loras_min_weight (Number)
 This is the lowest value you can set for the lora weight using the slider.
-```
+```json
 "default_loras_min_weight": -5,
 ```
 
 #### default_loras_max_weight (Number)
 This is the highest value you can set for the lora weight using the slider. If you set this to a value lower or the same as the default_loras_min_weight, you won't be able to change the lora weight with the slider.
-```
+```json
 "default_loras_max_weight": 5,
 ```
 
 #### default_max_lora_number (Number)
 This controls how many loras the interface will show. I tested values from 1 to 20 and the interface showed that many. Setting it to 0 will cause the interface to show the default 5.
-```
+```json
 "default_max_lora_number": 10,
 ```
 
 #### default_save_metadata_to_images (Boolean)
 Whether to include metadata in the images themselves. Fooocus will always produce the log.html files.
-```
+```json
 "default_save_metadata_to_images": false,
 ```
 
 #### default_metadata_scheme (String)
 This determines if metadata in files is in JSON format (fooocus) or the format Automatic1111 uses. If default_save_metadata_to_images is false or absent, this will have no effect.
-```
+```json
 "default_metadata_scheme": "fooocus",
 ```
 or 
-```
+```json
 "default_metadata_scheme": "a1111",
 ```
 
 #### metadata_created_by (String)
 Allows you to put your name, handle or something else in the metadata. Again, this only matters if metadata is saved to images.
-```
+```json
 "metadata_created_by": "Your_Message_Here",
 ```
 
 #### default_inpaint_mask_model (String)
 #### default_inpaint_mask_sam_model (String)
 These settings should only be changed if you have an alternative inpaint mask or sam model that you want Fooocus to use.
-```
+```json
 "default_inpaint_mask_sam_model": "model.safetensors",
 ```
 #### default_inpaint_mask_cloth_category (String)
 The model you specified above should have instructions on the correct category to use.
-```
+```json
 "default_inpaint_mask_cloth_category": "category",
 ```
 

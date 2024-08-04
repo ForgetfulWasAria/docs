@@ -272,9 +272,9 @@ This sets the list that appears below the inpainting section. You can add or cha
 Notice that the last item doesn't have a comma at the end.
 
 #### default_output_format (String)
-Controls the image format Fooocus will produce. Can be "jpg", "png", or "webp." If not set, Fooocus will produce PNG files.
+Controls the image format Fooocus will produce. Can be "jpeg", "png", or "webp." If not set, Fooocus will produce PNG files.
 ```json
-"default_output_format": "jpg",
+"default_output_format": "jpeg",
 ```
 #### default_overwrite_upscale (Number)
 ???? I would think this controls the upscale factor but I'm not sure.

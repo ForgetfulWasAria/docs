@@ -215,6 +215,12 @@ Whether to show the Advanced settings at start up or not.
 ```json
 "default_advanced_checkbox": true,
 ```
+#### default_developer_debug_mode_checkbox (Boolean)
+Whether to show the Developer Debug settings at start up or not.
+```json
+"default_developer_debug_mode_checkbox": true,
+```
+
 #### default_max_image_number (Number)
 This sets how many images are queued when the Generate button is pressed. I tested and it seems you can set this to 1000 without a problem. I did not actually generate 1000 images though. In the past, I"ve used 100 without a problem.
 ```json
